@@ -26,7 +26,7 @@ C:\Personal\Eafit\ING_SIS_DIST\Project\CIFO-MS\CiFo-Sln\Auth.API\obj\Debug\net6.
 C:\Personal\Eafit\ING_SIS_DIST\Project\CIFO-MS\CiFo-Sln\Auth.API\obj\Debug\net6.0\Auth.API.genruntimeconfig.cache
 C:\Personal\Eafit\ING_SIS_DIST\Project\CIFO-MS\CiFo-Sln\Auth.API\obj\Debug\net6.0\ref\Auth.API.dll
 C:\Personal\Eafit\ING_SIS_DIST\Project\CIFO-MS\CiFo-Sln\Auth.API\bin\Debug\net6.0\Auth.deps.json
-C:\Personal\Eafit\ING_SIS_DIST\Project\CIFO-MS\CiFo-Sln\Auth.API\bin\Debug\net6.0\Auth.API.runtimeconfig.json
+C:\Personal\Eafit\ING_SIS_DIST\Project\CIFO-MS\CiFo-Sln\Auth.API\bin\Debug\net6.0\Auth.runtimeconfig.json
 C:\Personal\Eafit\ING_SIS_DIST\Project\CIFO-MS\CiFo-Sln\Auth.API\bin\Debug\net6.0\Auth.exe
 C:\Personal\Eafit\ING_SIS_DIST\Project\CIFO-MS\CiFo-Sln\Auth.API\bin\Debug\net6.0\eafit-cifo-firebase.json
 C:\Personal\Eafit\ING_SIS_DIST\Project\CIFO-MS\CiFo-Sln\Auth.API\bin\Debug\net6.0\FirebaseAdmin.dll
