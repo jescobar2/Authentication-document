@@ -9,11 +9,11 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
-COPY ["Auth.API.csproj", "Auth.API/"]
+WORKDIR /CiFo-Sln
+COPY ["Auth.API/DockerfileAuth.API.csproj", "Auth.API/"]
 RUN dotnet restore "Auth.API/Auth.API.csproj"
 COPY . .
-WORKDIR "/src/Auth.API"
+WORKDIR "/CiFo-Sln/Auth.API"
 RUN dotnet build "Auth.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
