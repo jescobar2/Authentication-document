@@ -9,7 +9,7 @@ namespace Auth.API
 {
     public class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "eafit-cifo-firebase.json");
