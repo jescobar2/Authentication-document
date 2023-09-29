@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: consumer-app
+  name: authentication-document
 spec:
   selector:
-    app.kubernetes.io/name: consumer-app
+    app.kubernetes.io/name: authentication-document
   ports:
     - protocol: TCP
       port: 80
@@ -17,17 +17,17 @@ kind: Deployment
 metadata:
   annotations:
     autopilot.gke.io/resource-adjustment: >-
-      {"input":{"containers":[{"name":"consumer-app"}]},"output":{"containers":[{"limits":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"requests":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"name":"consumer-app"}]},"modified":true}
+      {"input":{"containers":[{"name":"authentication-document"}]},"output":{"containers":[{"limits":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"requests":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"name":"authentication-document"}]},"modified":true}
     autopilot.gke.io/warden-version: 2.7.41
   labels:
-    app: consumer-app
-  name: consumer-app
+    app: authentication-document
+  name: authentication-document
   namespace: microservicios-distribuidas
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: consumer-app
+      app: authentication-document
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -36,12 +36,12 @@ spec:
   template:
     metadata:
       labels:
-        app: consumer-app
+        app: authentication-document
     spec:
       containers:
         - image: gcr.io/hazel-champion-399821/github.com/jescobar2/consumer
           imagePullPolicy: IfNotPresent
-          name: consumer-app
+          name: authentication-document
           resources:
             limits:
               cpu: 500m
@@ -71,7 +71,7 @@ spec:
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: consumer-app
+  name: authentication-document
   namespace: microservicios-distribuidas
 spec:
   maxReplicas: 5
@@ -86,4 +86,4 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: consumer-app
+    name: authentication-document
