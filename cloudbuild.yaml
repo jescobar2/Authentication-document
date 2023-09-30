@@ -28,6 +28,7 @@ steps:
 #     - '.'
 #   dir: 'hello-app'
 
+
 # build the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/hazel-champion-399821/github.com/jescobar2/authentication-document:$COMMIT_SHA', '-f', 'github.com/jescobar2/authentication-document/CiFo-Sln/"Auth.API"/Dockerfile', '.']
