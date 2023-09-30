@@ -30,7 +30,7 @@ steps:
 
 # build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/hazel-champion-399821/github.com/jescobar2/authentication-document:$COMMIT_SHA', '.', '-f', 'Dockerfile']
+  args: ['build', '-t', 'gcr.io/hazel-champion-399821/github.com/jescobar2/authentication-document:$COMMIT_SHA', '.', '-f', './"Auth.API"/Dockerfile']
 
 # push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
