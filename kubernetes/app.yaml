@@ -39,7 +39,7 @@ spec:
         app: authentication-document
     spec:
       containers:
-        - image: gcr.io/hazel-champion-399821/github.com/jescobar2/consumer
+        - image: gcr.io/hazel-champion-399821/github.com/jescobar2/authentication-document
           imagePullPolicy: IfNotPresent
           name: authentication-document
           resources:

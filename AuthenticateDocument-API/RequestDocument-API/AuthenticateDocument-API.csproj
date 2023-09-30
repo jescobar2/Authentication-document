@@ -4,7 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>RequestDocument_API</RootNamespace>
+    <RootNamespace>AuthenticateDocument_API</RootNamespace>
+    <UserSecretsId>99523c6d-40c8-468c-a3a4-a7d90fb88b14</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SIFO.Services\CIFO.Services.csproj" />
+    <ProjectReference Include="..\..\CiFo-Sln\CiFo.Model\Cifo.Model.csproj" />
+    <ProjectReference Include="..\..\CiFo-Sln\Cifo.Service\Cifo.Service.csproj" />
   </ItemGroup>
 
 </Project>

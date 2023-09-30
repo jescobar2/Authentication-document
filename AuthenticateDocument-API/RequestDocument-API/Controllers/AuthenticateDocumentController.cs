@@ -1,33 +1,38 @@
-﻿using CIFO.Models.Models;
-using CIFO.Models.Util;
-using CIFO.Services.GovCarpeta;
+﻿using Cifo.Model.Document;
+using Cifo.Model.Util;
+using Cifo.Service.Authenticate;
+using Cifo.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CIFO.RequestDocument_API.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AuthenticateDocumentController : Controller
     {
-        private readonly ILogger<SystemController> _logger;
-        private readonly IAuthenticationServices _authenticationServices;
+        private readonly ILogger _logger;
+        private readonly IAuthenticateService _authenticationServices;
 
-        public AuthenticateDocumentController(ILogger<SystemController> logger,
-                                         IAuthenticationServices authenticationServices)
+        public AuthenticateDocumentController(ILogger<AuthenticateDocumentController> logger,
+                                         IAuthenticateService authenticationServices)
         {
             _authenticationServices = authenticationServices;
             _logger = logger;
         }
 
 
-        [HttpPut("AuthenticateDocument")]
+        [HttpPut]
+        [Route("AuthenticateDocument")]
         [ProducesResponseType(typeof(ApiException), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(Task<AuthenticateDocumentCompleteModel>), StatusCodes.Status200OK)]
-        public async Task<ActionResult> AuthenticateDocument(AuthenticateDocumentCompleteModel archivo)
+        [ProducesResponseType(typeof(Task<AuthenticateDocumentModel>), StatusCodes.Status200OK)]
+        public async Task<ActionResult> AuthenticateDocument(AuthenticateDocumentModel archivo)
         {
             try
             {
-                return Ok(_authenticationServices.AuthenticationDocument(archivo));
+                var userKey = User.Claims.First(c => c.Type == "user_id").Value;
+                return Ok(_authenticationServices.AuthenticationDocument(archivo,userKey));
             }
             catch (Exception ex)
             {
